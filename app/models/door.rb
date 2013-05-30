@@ -3,7 +3,7 @@ class Door < ActiveRecord::Base
 
   has_many :badge_scans
 
-  def to_s
-    location
+  def as_json(options={})
+    super(except: [:created_at, :updated_at])
   end
 end

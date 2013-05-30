@@ -4,7 +4,7 @@ class Entrant < ActiveRecord::Base
   has_many :badge_scans
   belongs_to :company
 
-  def to_s
-    "#{first_name} #{last_name}"
+  def as_json(options={})
+    super(except: [:created_at, :updated_at])
   end
 end

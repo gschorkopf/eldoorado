@@ -3,7 +3,7 @@ class Company < ActiveRecord::Base
 
   has_many :entrants
 
-  def to_s
-    name
+  def as_json(options={})
+    super(except: [:created_at, :updated_at])
   end
 end
