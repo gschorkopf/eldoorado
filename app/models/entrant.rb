@@ -3,4 +3,8 @@ class Entrant < ActiveRecord::Base
 
   has_many :badge_scans
   belongs_to :company
+
+  def to_s
+    "#{first_name} #{last_name}"
+  end
 end
