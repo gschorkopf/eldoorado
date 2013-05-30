@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(:version => 20130530021236) do
 
   create_table "badge_scans", :force => true do |t|
-    t.datetime "scan_date"
     t.datetime "scan_time"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -37,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20130530021236) do
   create_table "entrants", :force => true do |t|
     t.string   "first_name",  :default => "Galvanize"
     t.string   "last_name",   :default => "Guest"
-    t.boolean  "guest?",      :default => false
+    t.boolean  "guest",       :default => false
     t.string   "access_type", :default => "Access permitted - token only"
     t.datetime "created_at",                                               :null => false
     t.datetime "updated_at",                                               :null => false
