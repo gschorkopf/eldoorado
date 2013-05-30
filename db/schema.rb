@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130530015435) do
+ActiveRecord::Schema.define(:version => 20130530021236) do
 
   create_table "badge_scans", :force => true do |t|
     t.datetime "scan_date"
     t.datetime "scan_time"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "door_id"
+    t.integer  "entrant_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -39,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130530015435) do
     t.string   "access_type", :default => "Access permitted - token only"
     t.datetime "created_at",                                               :null => false
     t.datetime "updated_at",                                               :null => false
+    t.integer  "company_id"
   end
 
 end
