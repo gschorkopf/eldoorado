@@ -10,7 +10,7 @@ class BadgeScansController < ApplicationController
   def show
     @badge_scan = BadgeScan.find(params[:id])
 
-    respond_with @badge_scan, include: @badge_scan.entrant
+    respond_with @badge_scan
   end
 
   def create
