@@ -3,6 +3,10 @@ class Company < ActiveRecord::Base
 
   has_many :entrants
 
+  def badge_scans
+    entrants.collect(&:badge_scans)
+  end
+
   def as_json(options={})
     super(except: [:created_at, :updated_at])
   end

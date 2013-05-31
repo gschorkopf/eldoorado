@@ -6,5 +6,10 @@ class BadgeScan < ActiveRecord::Base
 
   def as_json(options={})
     super(except: [:created_at, :updated_at])
+    
+    {
+      scan_time: self.scan_time,
+      door: self.door
+    }
   end
 end

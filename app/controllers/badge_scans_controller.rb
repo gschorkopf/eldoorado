@@ -10,13 +10,13 @@ class BadgeScansController < ApplicationController
   def show
     @badge_scan = BadgeScan.find(params[:id])
 
-    respond_with @badge_scan
+    respond_with @badge_scan, include: @badge_scan.entrant
   end
 
   def create
     @badge_scan = BadgeScan.new(params[:badge_scan])
+    
     if @badge_scan.save
-      # 200 message
     else
       # 404 message?
     end

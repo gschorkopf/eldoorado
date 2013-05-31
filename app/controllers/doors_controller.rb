@@ -14,7 +14,9 @@ class DoorsController < ApplicationController
   end
 
   def create
-    @door = Door.new(params[:door])
+    @door = Door.where(
+      location: params[:door][:location]).first_or_create
+    
     if @door.save
       # 200 message
     else

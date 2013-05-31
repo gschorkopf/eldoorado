@@ -14,7 +14,9 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.new(params[:company])
+    @company = Company.where(
+      name: params[:company][:name]).first_or_create
+    
     if @company.save
       # 200 message
     else
