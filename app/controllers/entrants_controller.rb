@@ -14,15 +14,13 @@ class EntrantsController < ApplicationController
   end
 
   def create
-    params = params[:entrant]
+    unless @entrant = Entrant.find_by_first_name_and_last_name(
+        params[:entrant][:first_name],
+        params[:entrant][:last_name])
 
-    @entrant = Entrant.where(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      guest: params[:guest]).first_or_create
-    @entrant.company_id = params[:company_id]
-    @entrant.access_type = params[:access_type]
-    @entrant.save
+      @entrant = Entrant.new(params[:entrant])
+      @entrant.save
+    end
 
     respond_with @entrant
   end
