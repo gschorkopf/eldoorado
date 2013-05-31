@@ -16,12 +16,7 @@ class EntrantsController < ApplicationController
   def create
     params = params[:entrant]
 
-    @entrant = Entrant.where(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      guest: params[:guest]).first_or_create
-    @entrant.company_id = params[:company_id]
-    @entrant.access_type = params[:access_type]
+    @entrant = Entrant.new(params)
     @entrant.save
 
     respond_with @entrant
