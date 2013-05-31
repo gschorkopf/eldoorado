@@ -6,5 +6,15 @@ class Entrant < ActiveRecord::Base
 
   def as_json(options={})
     super(except: [:created_at, :updated_at])
+
+    {
+      id: id,
+      first_name: self.first_name,
+      last_name: self.last_name,
+      guest: self.guest,
+      access_type: self.access_type,
+      company: self.company,
+      badge_scans: self.badge_scans
+    }
   end
 end
