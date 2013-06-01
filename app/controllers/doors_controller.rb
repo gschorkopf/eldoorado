@@ -8,7 +8,7 @@ class DoorsController < ApplicationController
   end
 
   def show
-    @door = Door.find(params[:id])
+    @door = Door.handle_id(params[:id])
 
     respond_with @door
   end
@@ -17,11 +17,7 @@ class DoorsController < ApplicationController
     @door = Door.where(
       location: params[:door][:location]).first_or_create
     
-    if @door.save
-      # 200 message
-    else
-      # 404 message?
-    end
+    @door.save
 
     respond_with @door
   end

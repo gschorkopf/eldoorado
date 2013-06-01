@@ -8,7 +8,7 @@ class EntrantsController < ApplicationController
   end
 
   def show
-    @entrant = Entrant.find(params[:id])
+    @entrant = Entrant.handle_id(params[:id])
 
     respond_with @entrant
   end
