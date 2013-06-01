@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+    @company = Company.handle_id(params[:id])
 
     respond_with @company
   end
@@ -17,11 +17,7 @@ class CompaniesController < ApplicationController
     @company = Company.where(
       name: params[:company][:name]).first_or_create
     
-    if @company.save
-      # 200 message
-    else
-      # 404 message?
-    end
+    @company.save
 
     respond_with @company
   end

@@ -13,7 +13,7 @@ class Entrant < ActiveRecord::Base
       last_name: self.last_name,
       guest: self.guest,
       access_type: self.access_type,
-      company: self.company,
+      company: self.company.name,
       badge_scans: self.badge_scans
     }
   end
