@@ -13,4 +13,12 @@ class BadgeScan < ActiveRecord::Base
       entrant_id: self.entrant.id
     }
   end
+
+  def self.handle_id(id)
+    if id.to_i == 0
+      find_by_door(id)
+    else
+      find(id)
+    end
+  end
 end

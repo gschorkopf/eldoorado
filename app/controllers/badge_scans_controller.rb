@@ -8,7 +8,7 @@ class BadgeScansController < ApplicationController
   end
 
   def show
-    @badge_scan = BadgeScan.find(params[:id])
+    @badge_scan = BadgeScan.handle_id(params[:id])
 
     respond_with @badge_scan
   end
@@ -16,10 +16,7 @@ class BadgeScansController < ApplicationController
   def create
     @badge_scan = BadgeScan.new(params[:badge_scan])
     
-    if @badge_scan.save
-    else
-      # 404 message?
-    end
+    @badge_scan.save
 
     respond_with @badge_scan
   end
