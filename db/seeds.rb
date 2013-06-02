@@ -32,7 +32,8 @@ BadgeScan.create([
 Door.create([
   { location: 'Atrium Door (In)' },
   { location: 'Back Door (In)' },
-  { location: 'Knoll Door (In)' }
+  { location: 'Knoll Door (In)' },
+  { location: 'Front Door (In)' }
   ])
 
 # Test Comapnies
