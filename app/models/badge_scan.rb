@@ -10,7 +10,10 @@ class BadgeScan < ActiveRecord::Base
     {
       scan_time: self.scan_time,
       door: self.door.location,
-      entrant_id: self.entrant.id
+      first_name: self.entrant.first_name,
+      last_name: self.entrant.last_name,
+      guest: self.entrant.guest,
+      company: self.entrant.company.name
     }
   end
 
