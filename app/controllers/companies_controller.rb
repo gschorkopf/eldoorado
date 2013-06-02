@@ -14,10 +14,10 @@ class CompaniesController < ApplicationController
   end
 
   def create
-    @company = Company.where(
-      name: params[:company][:name]).first_or_create
-    
-    @company.save
+    unless @company = Company.find_by_name(params[:company][:name])
+      @company = Company.new(params[:company])
+      @company.save
+    end
 
     respond_with @company
   end

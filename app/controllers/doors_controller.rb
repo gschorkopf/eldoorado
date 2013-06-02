@@ -14,10 +14,10 @@ class DoorsController < ApplicationController
   end
 
   def create
-    @door = Door.where(
-      location: params[:door][:location]).first_or_create
-    
-    @door.save
+    unless @door = Door.find_by_location(location: params[:door][:location])
+      @door = Door.new(params[:door])
+      @door.save
+    end
 
     respond_with @door
   end
