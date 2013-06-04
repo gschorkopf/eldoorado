@@ -1,6 +1,8 @@
 class BadgeScansController < ApplicationController
   respond_to :json
 
+  caches_page :index
+
   def index
     @badge_scans = BadgeScan.all
 

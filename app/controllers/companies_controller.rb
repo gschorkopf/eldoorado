@@ -1,6 +1,8 @@
 class CompaniesController < ApplicationController
   respond_to :json
 
+  caches_page :index
+
   def index
     @companies = Company.all
 

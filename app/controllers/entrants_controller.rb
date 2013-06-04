@@ -1,6 +1,8 @@
 class EntrantsController < ApplicationController
   respond_to :json
 
+  caches_page :index
+
   def index
     @entrants = Entrant.all
 
