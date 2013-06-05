@@ -4,7 +4,7 @@ class BadgeScansController < ApplicationController
   caches_page :index
 
   def index
-    @badge_scans = BadgeScan.all
+    @badge_scans = BadgeScan.find(:all, limit: 5000)
 
     respond_with @badge_scans
   end
@@ -19,6 +19,8 @@ class BadgeScansController < ApplicationController
     @badge_scan = BadgeScan.new(params[:badge_scan])
     
     @badge_scan.save
+    
+    expire_page action: :index
 
     respond_with @badge_scan
   end

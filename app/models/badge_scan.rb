@@ -4,6 +4,8 @@ class BadgeScan < ActiveRecord::Base
   belongs_to :entrant
   belongs_to :door
 
+  default_scope order('scan_time DESC')
+
   def as_json(options={})
     super(except: [:created_at, :updated_at])
 
